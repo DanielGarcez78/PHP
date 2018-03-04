@@ -1,11 +1,25 @@
 <?php
 
+namespace ENT\Security;
+
 class Usuario {
 
   private $usuarioID;
   private $nome;
   private $email;
   private $senha;
+
+
+  public function __construct($nome, $email, $senha) {
+      $this->nome = $nome;
+      $this->email = $email;
+      $this->senha = $senha;
+  }
+
+
+  public function __destruct() {
+
+  }
 
   public function getUsuarioID() {
     return $this->usuarioID;
@@ -32,11 +46,15 @@ class Usuario {
   }
 
   public function getSenha() {
-    return $this->senha
+    return $this->senha;
   }
 
   public function setSenhha($senha) {
     $this->senha = $senha;
+  }
+
+  public function __toString() {
+    return $this->nome." ".$this->email;
   }
 
 }
